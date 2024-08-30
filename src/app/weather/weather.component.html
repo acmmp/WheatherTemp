@@ -1,0 +1,56 @@
+<div class="weather-container">
+  <h1>App Weather</h1>
+  
+  <div class="search-container">
+    <input [(ngModel)]="city" placeholder="Escribe el nombre de la ciudad" />
+    <button (click)="getWeather()">Buscar</button>
+  </div>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <div *ngIf="weatherData" class="weather-data">
+    <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+    <div class="weather-info">
+      <div class="weather-item">
+        <i class="fas fa-thermometer-half"></i>
+        <p>Temperatura</p>
+        <p class="value">{{ weatherData.main.temp }}°C</p>
+      </div>
+      <div class="weather-item">
+        <i class="fas fa-tint"></i>
+        <p>Humedad</p>
+        <p class="value">{{ weatherData.main.humidity }}%</p>
+      </div>
+      <div class="weather-item">
+        <i class="fas fa-wind"></i>
+        <p>Velocidad del Viento</p>
+        <p class="value">{{ weatherData.wind.speed }} m/s</p>
+      </div>
+      <div class="weather-item">
+        <i class="fas fa-cloud"></i>
+        <p>Nubosidad</p>
+        <p class="value">{{ weatherData.clouds.all }}%</p>
+      </div>
+    </div>
+    <div class="additional-info">
+      <div class="info-item">
+        <p>Sensación Térmica</p>
+        <p class="value">{{ weatherData.main.feels_like }}°C</p>
+      </div>
+      <div class="info-item">
+        <p>Presión</p>
+        <p class="value">{{ weatherData.main.pressure }} hPa</p>
+      </div>
+      <div class="info-item">
+        <p>Visibilidad</p>
+        <p class="value">{{ weatherData.visibility / 1000 }} km</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="project-info">
+    <p>Este proyecto ha sido realizado por Adrian Campayo con Angular 18y el uso de API</p>
+    <img src="https://img.icons8.com/?size=100&id=dSnah6CSCxRG&format=png&color=000000" alt="Angular logo" class="angular-logo" style="width: 50px; height: auto;">
+  </footer>
